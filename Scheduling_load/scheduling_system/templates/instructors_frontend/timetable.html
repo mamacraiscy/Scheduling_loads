@@ -1,0 +1,245 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <link href="{% static 'css/time.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Weekly Schedule</h1>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>TIME</th>
+                    <th>MONDAY</th>
+                    <th>TUESDAY</th>
+                    <th>WEDNESDAY</th>
+                    <th>THURSDAY</th>
+                    <th>FRIDAY</th>`
+                    <th>SATURDAY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- AM Times -->
+                <tr>
+                    <td>6:00 - 7:00 AM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>7:00 - 8:00 AM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <!-- Repeat until 12:00 PM -->
+                <tr>
+                    <td>8:00 - 9:00 AM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>9:00 - 10:00 AM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>10:00 - 11:00 AM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>11:00 - 12:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <!-- Lunch Break -->
+                <tr class="break">
+                    <td colspan="7">LUNCH BREAK (12:00 - 1:00 PM)</td>
+                </tr>
+                <!-- PM Times -->
+                <tr>
+                    <td>1:00 - 2:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <!-- Repeat until 10:00 PM -->
+                <tr>
+                    <td>2:00 - 3:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>3:00 - 4:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>4:00 - 5:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>5:00 - 6:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>6:00 - 7:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>7:00 - 8:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>8:00 - 9:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+                <tr>
+                    <td>9:00 - 10:00 PM</td>
+                    <td id = "MON" ></td>
+                    <td id = "TUE" ></td>
+                    <td id = "WED" ></td>
+                    <td id = "THU" ></td>
+                    <td id = "FRI" ></td>
+                    <td id = "SAT" ></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script >
+$(document).on("click", ".suggestion-item", function() {
+    var instructorId = $(this).data("id");
+    var instructorName = $(this).text();
+
+    // Set the selected instructor's name in the input
+    $("#instructor-search").val(instructorName);
+    $("#name-suggestions").hide();
+
+    // Clear existing table data
+    $("#instructor-load tr").each(function(index, row) {
+        $(row).find("td").html("&nbsp;");
+    });
+
+    // Fetch and display instructor's courses and schedules
+    $.ajax({
+        url: "{% url 'stored_data_details' %}",
+        data: { id: instructorId },
+        success: function(data) {
+            if (data.courses && data.courses.length > 0) {
+                data.courses.forEach(function(course, index) {
+                    var row = $("#instructor-load tr").eq(index);
+                    if (row.length > 0) {
+                        $(row).find("td").eq(0).text(course.course_code);
+                        $(row).find("td").eq(1).text(course.course_name);
+                    } else {
+                        $("#instructor-load").append(
+                            `<tr>
+                                <td>${course.course_code}</td>
+                                <td>${course.course_name}</td>
+                                <td>${course.degree_year_course}</td>
+                                <td>${course.total_students}</td>
+                            </tr>`
+                        );
+                    }
+
+                    // Process schedule data and update the weekly schedule
+                    course.schedule.forEach(function(schedule) {
+                        var startTime = schedule.start_time.split(':');
+                        var endTime = schedule.end_time.split(':');
+                        var startHour = parseInt(startTime[0]);
+                        var startMinute = parseInt(startTime[1]);
+                        var endHour = parseInt(endTime[0]);
+                        var endMinute = parseInt(endTime[1]);
+
+                        // Convert start time to the corresponding table row
+                        var timeRow = Math.floor(startHour) - 6; // Adjust for 6:00 AM start
+                        var dayColumn = getDayColumn(schedule.day);
+
+                        // Get the correct time range cell
+                        var timeRangeCell = $("#schedule-table").find('tr').eq(timeRow).find('td').eq(dayColumn);
+
+                        // Add color to the corresponding time slot
+                        timeRangeCell.css('background-color', '#90caf9');
+                    });
+                });
+            }
+        },
+        error: function() {
+            console.error("Failed to fetch instructor details.");
+        }
+    });
+});
+
+// Helper function to convert day to table column index
+function getDayColumn(day) {
+    var days = ["MON", "TUE", "WED", "THU", "FRI", "SAT"];
+    return days.indexOf(day.toUpperCase());
+}
+
+    </script>
+</body>
+</html>

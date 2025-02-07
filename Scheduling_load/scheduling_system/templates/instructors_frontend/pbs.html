@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program by Section</title>
+    <link rel="stylesheet" href="{% static 'css/load_teacher1.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+    <h1 id="title-head">Program by Section</h1>
+    
+    <section id="section1">
+        <div id="head-info" class="header-info">
+            <div id="head1">
+                <label><strong>Program:</strong> 
+                    <select id="program-filter">
+                        <option value="">All</option>
+                        <option value="HM">HM</option>
+                        <option value="COMPTECH">COMPTECH</option>
+                        <option value="AUTO">AUTO</option>
+                        <option value="ENG">ENG</option>
+                        <option value="EDUC">EDUC</option>
+                    </select>
+                </label>
+                <label><strong>Shift:</strong> 
+                    <select id="shift-filter">
+                        <option value="">All</option>
+                        <option value="DAY">DAY</option>
+                        <option value="EVE">EVE</option>
+                        <option value="3RD SHIFT">3RD SHIFT</option>
+                    </select>
+                </label>
+                <label><strong>Search Year Level:</strong> 
+                    <input type="text" id="section-search" name="q" placeholder="Enter year levels (e.g., 1,2,3,4)">
+                </label>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <h2>Filtered Results</h2>
+        <div class="scrollable">
+            <table id="program-table">
+                <thead>
+                    <tr>
+                        <th>Program Code</th>
+                        <th>Program Name</th>
+                        <th>Instructor</th>
+                        <th>Room</th>
+                        <th>Course</th>
+                        <th>Year Level</th>
+                        <th>Shift</th>
+                    </tr>
+                </thead>
+                <tbody id="program-load">
+                    <!-- Data will be loaded dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script>
+    $(document).ready(function() {
+        function fetchFilteredData() {
+            let program = $("#program-filter").val();  // Get selected program
+            let shift = $("#shift-filter").val();  // Get selected shift
+            let yearInput = $("#section-search").val();  // Get search input
+    
+            // 🔹 Define correct program mappings
+            let programMapping = {
+                "COMPTECH": ["BIT CT"],  // ✅ COMPTECH → BIT CT
+                "EDUC": ["BEED", "BTLED"],  // ✅ EDUC → BEED, BTLED
+                "ENG": ["BSCE", "BSME", "BSEE"]  // ✅ ENG → BSCE, BSME, BSEE
+            };
+    
+            let shiftMapping = {
+                "EVE": "Eve",
+                "DAY": "Day",
+                "3RD SHIFT": "3rd Shift"
+            };
+    
+            // 🔹 Ensure selectedPrograms is always an array
+            let selectedPrograms = programMapping[program] || [];  // Only allow mapped values!
+    
+            // 🔹 Convert shift selection
+            let selectedShift = shiftMapping[shift] || shift;
+    
+            // 🔹 Convert year input (e.g., "1,2,3" → ["1st Year", "2nd Year", "3rd Year"])
+            let yearMapping = { "1": "1st Year", "2": "2nd Year", "3": "3rd Year", "4": "4th Year" };
+            let selectedYears = yearInput.split(",").map(y => yearMapping[y.trim()]).filter(Boolean);
+    
+            console.log("Selected Programs:", selectedPrograms);  // ✅ Debugging
+    
+            $.ajax({
+                url: "{% url 'filter_programs' %}",
+                method: "GET",
+                data: {
+                    program_codes: selectedPrograms.join(","),  // Send only mapped values!
+                    shift: selectedShift,
+                    year_levels: selectedYears.join(",")
+                },
+                success: function(response) {
+                    populateProgramTable(response.programs);
+                }
+            });
+        }
+    
+        $("#program-filter, #shift-filter, #section-search").on("change input", function() {
+            fetchFilteredData();
+        });
+    
+        function populateProgramTable(programs) {
+            let tableBody = $("#program-load").empty();
+            programs.forEach(program => {
+                tableBody.append(`
+                    <tr>
+                        <td>${program.program_code}</td>
+                        <td>${program.program_name}</td>
+                        <td>${program.instructor_name}</td>
+                        <td>${program.room_number}</td>
+                        <td>${program.course_name}</td>
+                        <td>${program.year_level}</td>
+                        <td>${program.shift}</td>
+                    </tr>
+                `);
+            });
+        }
+    });    
+</script>
+
+</body>
+</html>
